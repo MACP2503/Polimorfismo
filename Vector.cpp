@@ -152,8 +152,8 @@ float Vector::magnitud()
 
 Vector Vector::producto(Vector v2)
 {
-  // Si los tamaños de los arreglos son ambos 3
-  if(this -> size == 3 && v2.getSize() == 3){
+  // Si los tamaños de los arreglos concuerdan
+  if(this -> size==3 && v2.getSize()==3){
     Vector newVector(3);
     //En el nuevo vector establece el resultado correspondiente al 
     //producto cruz en cada dimension
@@ -170,7 +170,8 @@ Vector Vector::producto(Vector v2)
 
 float Vector::angulo(Vector v2)
 {
-  if(this -> size == 3 && v2.getSize() == 3){
+  if(this -> size == v2.getSize())
+  {
     Vector v1(size, arr);
     Fraccion punto = v2 * v1;
     float grad; 
@@ -180,7 +181,7 @@ float Vector::angulo(Vector v2)
     grad *= (180/M_PI);
     return grad;
   }else{
-        cout << "Ambos vectores deben ser de tamaño 3" << endl;
+        cout << "Ambos vectores deben ser del mismo tamaño" << endl;
         return 0;
   }
 }
